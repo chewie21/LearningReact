@@ -33,8 +33,10 @@ const ImgLogo = styled.img`
 `;
 
 const Login = styled.div`
+    cursor: pointer;
     display: flex;
     flex-flow: column wrap;
+    font-size: 16px;
 `;
 
 const click = () => {
@@ -44,10 +46,10 @@ const click = () => {
 export const NavBar = () => (
     <NavBarStyled>
         <Logo>
-                <ImgLogo src={ logoImg } alt="logo"/>
-                <H1>Ресторан</H1>
+            <ImgLogo src={ logoImg } alt="logo"/>
+            <H1>Ресторан</H1>
         </Logo>
-        <Login onClick={click} type="button">
+        <Login onClick={click}>
             <img src={ loginImg } alt="login"/>
             Войти
         </Login>
