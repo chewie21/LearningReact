@@ -17,17 +17,21 @@ const MenuBanner = styled.div`
     height: 210px;
 `;
 
-export const Menu = () => (
+export const Menu = ({setOpenItem}) => (
     <MenuStyled>
         <MenuBanner/>
         <section>
             <h2>Бургеры</h2>
-            <ListItem itemList={dbMenu.burger}/>
+            <ListItem
+                setOpenItem={setOpenItem}
+                itemList={dbMenu.burger}/>
         </section>
 
         <section>
             <h2>Закуски / Напитки</h2>
-            <ListItem itemList={dbMenu.other}/>
+            <ListItem
+                setOpenItem={setOpenItem}
+                itemList={dbMenu.other}/>
         </section>
     </MenuStyled>
 );
