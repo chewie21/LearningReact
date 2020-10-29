@@ -31,6 +31,11 @@ const Banner = styled.div`
 `;
 
 const ModalBody = styled.div`
+    padding-top: 30px;
+    padding-bottom: 30px;
+`;
+
+const ModalContent = styled.div`
     display: flex;
     justify-content: space-around;
 `;
@@ -45,15 +50,16 @@ export const ModalItem = ({ openItem, setOpenItem}) => {
     return (
         <Overlay id='overlay' onClick={close}>
             <Modal>
-                <Banner img={openItem.img}>
-                </Banner>
+                <Banner img={openItem.img}/>
                 <ModalBody>
-                    <p>
-                        {openItem.name}
-                    </p>
-                    <p>
-                        {openItem.price}
-                    </p>
+                    <ModalContent>
+                        <p>
+                            {openItem.name}
+                        </p>
+                        <p>
+                            {openItem.price}
+                        </p>
+                    </ModalContent>
                 </ModalBody>
                 <ModalButton setOpenItem={setOpenItem}/>
             </Modal>
