@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from "styled-components";
-import { ModalButton } from "./ModalButton";
+import { ModalButton } from "../Styles/ModalButton";
 
 const Overlay = styled.div`
     position: fixed;
@@ -41,12 +41,22 @@ const ModalContent = styled.div`
 `;
 
 
-export const ModalItem = ({ openItem, setOpenItem}) => {
+export const ModalItem = ({ openItem, setOpenItem, orders, setOrders}) => {
+
     const close = (event) => {
         if(event.target.id === 'overlay') setOpenItem(null);
     }
 
-    if(!openItem) return null;
+    const order = {
+        ...openItem
+    };
+
+    const addToOrder = () => {
+        console.log(1);
+        setOrders([...orders, order]);
+        setOpenItem(null);
+    }
+
     return (
         <Overlay id='overlay' onClick={close}>
             <Modal>
@@ -61,7 +71,7 @@ export const ModalItem = ({ openItem, setOpenItem}) => {
                         </p>
                     </ModalContent>
                 </ModalBody>
-                <ModalButton setOpenItem={setOpenItem}/>
+                <ModalButton onClick={addToOrder}>Добавить</ModalButton>
             </Modal>
         </Overlay>
     )
